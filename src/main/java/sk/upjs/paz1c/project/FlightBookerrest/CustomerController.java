@@ -6,9 +6,8 @@ import sk.upjs.paz1c.project.storage.CustomerDao;
 import sk.upjs.paz1c.project.storage.DaoFactory;
 import sk.upjs.paz1c.project.storage.EntityNotFoundException;
 
-import java.util.List;
-
 @RestController
+@CrossOrigin
 @RequestMapping("/customers")
 public class CustomerController {
     private CustomerDao customerDao = DaoFactory.INSTANCE.getCustomerDao();
@@ -22,7 +21,7 @@ public class CustomerController {
     public Customer save(@RequestBody Customer customer) throws EntityNotFoundException, NullPointerException {
         return customerDao.save(customer);
     }
-    @GetMapping("getFlightid/{id}")
+    @GetMapping("getCustomer/{id}")
     public Customer getById(@PathVariable("id") long id)
     {
         return customerDao.getById(id);
